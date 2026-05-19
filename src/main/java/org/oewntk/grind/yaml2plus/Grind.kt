@@ -6,17 +6,16 @@ package org.oewntk.grind.yaml2plus
 import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
 import kotlinx.cli.default
-import kotlinx.cli.required
-import java.io.File
 import org.oewntk.grind.yaml2plus.Tracing.progress
 import org.oewntk.grind.yaml2plus.Tracing.start
 import org.oewntk.model.ModelInfo
-import org.oewntk.json.out.ModelConsumer as JsonModuleConsumer
-import org.oewntk.ser.`in`.Factory as SerFactory
-import org.oewntk.ser.out.ModelConsumer as SerModuleConsumer
 import org.oewntk.yaml.`in`.FactoryPlus
+import java.io.File
+import org.oewntk.json.out.ModelConsumer as JsonModelConsumer
+import org.oewntk.ser.`in`.Factory as SerFactory
+import org.oewntk.ser.out.ModelConsumer as SerModelConsumer
 import org.oewntk.yaml.`in`.Factory as YamlFactory
-import org.oewntk.yaml.out.ModelConsumer as YamlModuleConsumer
+import org.oewntk.yaml.out.CoreModelConsumer as YamlModelConsumer
 
 /**
  * Main class that generates the OEWN plus database
@@ -48,6 +47,7 @@ object Grind {
         val inPlus by parser.option(        ArgType.Boolean, shortName = "p",  fullName = "plus",       description = "Plus input")         .default(false)
         val outFormat by parser.option(     ArgType.String,  shortName = "of", fullName = "out format", description = "Output format")      .default("yaml")
         val outInfo by parser.option(       ArgType.String,  shortName = "i",  fullName = "out info",   description = "Output info")        .default("oewn.info")
+        val outOne by parser.option(        ArgType.Boolean, shortName = "1",  fullName = "out one",    description = "Output one file")    .default(false)
         val verbose by parser.option(       ArgType.Boolean, shortName = "v",  fullName = "verbose",    description = "Verbose output")     .default(false)
         // @formatter:on
 
@@ -98,9 +98,9 @@ object Grind {
         progress("before model is consumed,", startTime)
 
         when (outFormat) {
-            "ser" -> SerModuleConsumer(outFile).accept(model)
-            "json" -> JsonModuleConsumer(outFile).accept(model)
-            "yaml" -> YamlModuleConsumer(outFile).accept(model)
+            "ser" -> SerModelConsumer(outFile).accept(model)
+            "json" -> JsonModelConsumer(outFile).accept(model)
+            "yaml" -> YamlModelConsumer(outFile, !outOne).accept(model)
             else -> throw IllegalArgumentException("Unsupported output format")
         }
         progress("after model is consumed,", startTime)
