@@ -11,4 +11,6 @@
 **/_*/
 **/_*
 /dependency-reduced-pom.xml
-/oewn-grind-yaml2ser.jar
+/oewn-grind-yaml2plus.jar
+/out*/
+/out*
