@@ -65,15 +65,15 @@ object Grind {
         val startTime = start()
 
         // Input
-        Tracing.psInfo.println("[Op] $operation")
-
-        // Input
         val input = File(yaml)
         Tracing.psInfo.println("[Input] " + input.absolutePath)
 
         // Input2
         val input2 = File(yaml2)
         Tracing.psInfo.println("[Input2] " + input2.absolutePath)
+
+        // Processing
+        Tracing.psInfo.println("[Op] $operation")
 
         // Output
         val outFile = File(out)
