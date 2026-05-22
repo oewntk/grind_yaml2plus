@@ -30,22 +30,29 @@ This output conforms to the **YAML** standards.
 
 ## Command line
 
-`grind.sh [YAML] [YAML2] [YAML]`
+`grind.sh [options] source (source2) output`
 
-grinds the YAML database
+#### Command line arguments
 
-*where*
+| arg       | type    | short | long       | definition                       | default   |
+|-----------|---------|-------|------------|----------------------------------|-----------|
+| in        | String  |       |            | Input dir or file                |           |
+| out       | String  |       |            | Output dir or file               |           |
+| in2       | String  | i2    | in2        | Optional extra input dir or file | yaml2     |
+| operation | String  | do    | operation  | Operation                        | nothing   |
+| inFormat  | String  | if    | in_format  | In format                        | yaml      |
+| inPlus    | Boolean | p     | plus       | Plus input                       | false     |
+| outFormat | String  | of    | out_format | Output format                    | yaml      |
+| outInfo   | String  | i     | out_info   | Output info                      | oewn.info |
+| outOne    | Boolean | 1     | out_one    | Output one file                  | false     |
+| outMerge  | Boolean | m     | merge      | Do not group generated entries   | false     |
+| verbose   | Boolean | v     | verbose    | Verbose output                   | false     |
 
-[YAML] directory where OEWN distribution YAML files are
-
-[YAML2] directory where extra YAML files are
-
-[YAML] path to output YAML file
 
 ## Maven Central
 
 		<groupId>io.github.oewntk</groupId>
-		<artifactId>yaml2yaml</artifactId>
+		<artifactId>yaml2plus</artifactId>
 		<version>2.3.2</version>
 
 ## Dependencies
