@@ -4,8 +4,8 @@
 /yaml*
 /ser*/
 /ser*
-/plus*/
-/plus*
+/yamplus*/
+/yamplus*
 **/*.ser
 **/*.info
 **/_*/
