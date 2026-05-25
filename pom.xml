@@ -7,7 +7,7 @@
 
     <groupId>io.github.oewntk</groupId>
     <artifactId>yaml2plus</artifactId>
-    <version>2.3.2</version>
+    <version>2.4.0</version>
     <name>yaml_to_plus</name>
     <description>Read YAML Wordnet model and convert model to YAML.</description>
     <url>https://github.com/oewntk/grind_yaml2plus</url>
@@ -23,32 +23,32 @@
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>model</artifactId>
-            <version>2.3.2</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>fromser</artifactId>
-            <version>2.3.2</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>fromyaml</artifactId>
-            <version>2.3.2</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>tojson</artifactId>
-            <version>2.3.2</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>toyaml</artifactId>
-            <version>2.3.2</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.oewntk</groupId>
             <artifactId>toser</artifactId>
-            <version>2.3.2</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
@@ -238,7 +238,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Build-Number>2.3.2</Build-Number>
+                                        <Build-Number>2.4.0</Build-Number>
                                     </manifestEntries>
                                     <mainClass>org.oewntk.grind.yaml2plus.Grind</mainClass>
                                 </transformer>
