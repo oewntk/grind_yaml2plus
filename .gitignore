@@ -6,11 +6,13 @@
 /ser*
 /yamplus*/
 /yamplus*
+/out*/
+/out*
+
 **/*.ser
 **/*.info
 **/_*/
 **/_*
 **/*.jar
+
 /dependency-reduced-pom.xml
-/out*/
-/out*
