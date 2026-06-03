@@ -53,7 +53,7 @@ This output conforms to the **YAML** standards.
 
 		<groupId>io.github.oewntk</groupId>
 		<artifactId>yaml2plus</artifactId>
-		<version>2.4.0</version>
+		<version>3.0.1</version>
 
 ## Dependencies
 
