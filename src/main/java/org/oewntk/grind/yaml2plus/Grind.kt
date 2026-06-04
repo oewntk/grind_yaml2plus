@@ -13,7 +13,7 @@ import org.oewntk.yaml.`in`.FactoryPlus
 import java.io.File
 import org.oewntk.json.out.ModelConsumer as JsonModelConsumer
 import org.oewntk.ser.out.ModelConsumer as SerModelConsumer
-import org.oewntk.yaml.out.CoreModelConsumer as YamlModelConsumer
+import org.oewntk.yaml.out.oewn.CoreModelConsumer as YamlModelConsumer
 
 /**
  * Main class that generates the OEWN plus database
