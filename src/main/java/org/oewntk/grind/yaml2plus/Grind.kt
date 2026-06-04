@@ -11,7 +11,7 @@ import org.oewntk.grind.yaml2plus.Tracing.start
 import org.oewntk.model.ModelInfo
 import org.oewntk.yaml.`in`.FactoryPlus
 import java.io.File
-import org.oewntk.json.out.ModelConsumer as JsonModelConsumer
+import org.oewntk.json.out.model.ModelConsumer as JsonModelConsumer
 import org.oewntk.ser.out.ModelConsumer as SerModelConsumer
 import org.oewntk.yaml.out.oewn.CoreModelConsumer as YamlModelConsumer
 
