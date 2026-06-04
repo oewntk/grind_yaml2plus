@@ -37,15 +37,15 @@ object Grind {
 
         // Options (start with - or --)
         // @formatter:off
-        val in1 by parser.argument(        ArgType.String,                                             description = "Input dir or file")
-        val in2 by parser.argument(       ArgType.String,                                             description = "Input YAML dir2")
+        val in1 by parser.argument(        ArgType.String,                                              description = "Input dir or file")
+        val in2 by parser.argument(       ArgType.String,                                               description = "Input YAML dir2")
         val out by parser.argument(         ArgType.String,                                             description = "Output dir or file")
-        val operation by parser.option(     ArgType.String,  shortName = "do", fullName = "operation",  description = "Operation")          .default("nothing")
-        val outFormat by parser.option(     ArgType.String,  shortName = "of", fullName = "out_format", description = "Output format")      .default("yaml")
-        val outInfo by parser.option(       ArgType.String,  shortName = "i",  fullName = "out_info",   description = "Output info")        .default("oewn.info")
-        val outOne by parser.option(        ArgType.Boolean, shortName = "1",  fullName = "out_one",    description = "Output one file")    .default(false)
+        val operation by parser.option(     ArgType.String,  shortName = "do", fullName = "operation",  description = "Operation")                       .default("nothing")
+        val outFormat by parser.option(     ArgType.String,  shortName = "of", fullName = "out_format", description = "Output format")                   .default("yaml")
+        val outInfo by parser.option(       ArgType.String,  shortName = "i",  fullName = "out_info",   description = "Output info")                     .default("oewn.info")
+        val outOne by parser.option(        ArgType.Boolean, shortName = "1",  fullName = "out_one",    description = "Output one file")                 .default(false)
         val outMerge by parser.option(      ArgType.Boolean, shortName = "m",  fullName = "merge",      description = "Do not group generated entries")  .default(false)
-        val verbose by parser.option(       ArgType.Boolean, shortName = "v",  fullName = "verbose",    description = "Verbose output")     .default(false)
+        val verbose by parser.option(       ArgType.Boolean, shortName = "v",  fullName = "verbose",    description = "Verbose output")                  .default(false)
         // @formatter:on
 
         parser.parse(args)
