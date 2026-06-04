@@ -37,18 +37,21 @@ object Grind {
 
         // Options (start with - or --)
         // @formatter:off
-        val in1 by parser.argument(        ArgType.String,                                              description = "Input dir or file")
-        val in2 by parser.argument(       ArgType.String,                                               description = "Input YAML dir2")
-        val out by parser.argument(         ArgType.String,                                             description = "Output dir or file")
-        val operation by parser.option(     ArgType.String,  shortName = "do", fullName = "operation",  description = "Operation")                       .default("nothing")
-        val outFormat by parser.option(     ArgType.String,  shortName = "of", fullName = "out_format", description = "Output format")                   .default("yaml")
-        val outInfo by parser.option(       ArgType.String,  shortName = "i",  fullName = "out_info",   description = "Output info")                     .default("oewn.info")
-        val outOne by parser.option(        ArgType.Boolean, shortName = "1",  fullName = "out_one",    description = "Output one file")                 .default(false)
-        val outMerge by parser.option(      ArgType.Boolean, shortName = "m",  fullName = "merge",      description = "Do not group generated entries")  .default(false)
-        val verbose by parser.option(       ArgType.Boolean, shortName = "v",  fullName = "verbose",    description = "Verbose output")                  .default(false)
-        // @formatter:on
+        val in1 by parser.argument(        ArgType.String,                                                        description = "Input dir or file")
+        val in2 by parser.argument(       ArgType.String,                                                         description = "Input YAML dir2")
+        val out by parser.argument(         ArgType.String,                                                       description = "Output dir or file")
+        val operation by parser.option(     ArgType.String,  shortName = "do", fullName = "operation",            description = "Operation")                       .default("nothing")
+        val outFormat by parser.option(     ArgType.String,  shortName = "of", fullName = "out_format",           description = "Output format")                   .default("yaml")
+        val outInfo by parser.option(       ArgType.String,  shortName = "i",  fullName = "out_info",             description = "Output info")                     .default("oewn.info")
+        val outOne by parser.option(        ArgType.Boolean, shortName = "1",  fullName = "out_one",              description = "Output one file")                 .default(false)
+        val outMerge by parser.option(      ArgType.Boolean, shortName = "m",  fullName = "merge",                description = "Do not group generated entries")  .default(false)
+        val verbose by parser.option(       ArgType.Boolean, shortName = "v",  fullName = "verbose",              description = "Verbose output")                  .default(false)
 
+        val traceTime by parser.option(        ArgType.Boolean,       shortName = "tt", fullName = "trace:time",  description = "trace time")                       .default(false)
+        val traceHeap by parser.option(        ArgType.Boolean,       shortName = "th", fullName = "trace:heap",  description = "trace heap")                       .default(false)
+        // @formatter:on
         parser.parse(args)
+
         if (verbose) {
             System.err.println("in: $in1")
             System.err.println("in2: $in2")
@@ -59,6 +62,9 @@ object Grind {
             System.err.println("out one: $outOne")
         }
         // Tracing
+        Tracing.traceTime = traceTime
+        Tracing.traceHeap = traceHeap
+
         val startTime = start()
 
         // Input
@@ -82,9 +88,7 @@ object Grind {
 
         // Supply model
         progress("before model is supplied,", startTime)
-        val model =  FactoryPlus(input, input2).get()!!
-
-        //Tracing.psInfo.printf("[Model] %s%n%s%n%n", Arrays.toString(model.getSources()), model.info());
+        val model = FactoryPlus(input, input2, verbose = verbose).get()!!
         progress("after model is supplied,", startTime)
 
         // Consume model
@@ -96,8 +100,9 @@ object Grind {
             "yaml" -> {
                 if (outMerge)
                     File(outFile, "entries-generated.yaml").delete()
-                YamlModelConsumer(outFile, split=!outOne, generated = !outMerge).accept(model)
+                YamlModelConsumer(outFile, split = !outOne, generated = !outMerge, verbose = verbose).accept(model)
             }
+
             else -> throw IllegalArgumentException("Unsupported output format")
         }
         progress("after model is consumed,", startTime)
