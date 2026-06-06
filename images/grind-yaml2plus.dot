@@ -12,6 +12,7 @@ digraph "io.github.oewntk:yaml2plus:jar:3.0.1" {
 	"io.github.oewntk:model:jar:3.0.1:compile" -> "org.jetbrains.kotlinx:kotlinx-serialization-core:jar:1.6.3:compile" ; 
 	"org.jetbrains.kotlinx:kotlinx-serialization-core:jar:1.6.3:compile" -> "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:jar:1.6.3:compile" ; 
 	"io.github.oewntk:fromyaml:jar:3.0.1:compile" -> "org.yaml:snakeyaml:jar:2.6:compile" ; 
+	"io.github.oewntk:tojson:jar:3.0.1:compile" -> "io.github.oewntk:json:jar:3.0.1:compile" ; 
 	"io.github.oewntk:tojson:jar:3.0.1:compile" -> "org.jetbrains.kotlinx:kotlinx-serialization-json:jar:1.6.3:compile" ; 
 	"org.jetbrains.kotlinx:kotlinx-serialization-json:jar:1.6.3:compile" -> "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:jar:1.6.3:compile" ; 
 	"org.jetbrains.kotlin:kotlin-stdlib:jar:2.1.0:compile" -> "org.jetbrains:annotations:jar:13.0:compile" ; 
