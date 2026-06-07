@@ -86,12 +86,12 @@ object Grind {
         Tracing.psInfo.println("[Output] " + outFile.absolutePath)
 
         // Supply model
-        progress("before model is supplied,", startTime)
+        progress("before model is supplied", startTime)
         val model = FactoryPlus(input, input2, verbose = verbose).get()!!
-        progress("after model is supplied,", startTime)
+        progress("after model is supplied", startTime)
 
         // Consume model
-        progress("before model is consumed,", startTime)
+        progress("before model is consumed", startTime)
 
         when (outFormat) {
             "ser" -> SerModelConsumer(outFile).accept(model)
@@ -104,10 +104,10 @@ object Grind {
 
             else -> throw IllegalArgumentException("Unsupported output format")
         }
-        progress("after model is consumed,", startTime)
+        progress("after model is consumed", startTime)
 
         // End
-        progress("total,", startTime)
+        progress("end", startTime)
 
         // info
         val modelInfo = model.info()
