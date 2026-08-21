@@ -21,7 +21,7 @@ verbose      Boolean, shortName = v,  fullName = verbose,    Verbose output     
 exit 1
 fi
 
-jar=yam2plus-3.0.1-uber.jar
+jar=yam2plus-3.0.1-SNAPSHOT-uber.jar
 if [ ! -e "${jar}" ]; then
   if [ ! -e "target/${jar}" ]; then
     echo "Non existing uber jar" >&2
